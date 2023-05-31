@@ -13,12 +13,12 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('grn_id');
             $table->integer('quantity');
-            $table->integer('fulfilled_by');
-            $table->timestamp('fulfilled_at');
+            $table->integer('fulfilled_by')->nullable();
+            $table->timestamp('fulfilled_at')->nullable();
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
-            $table->integer('deleted_by');
+            $table->integer('deleted_by')->nullable();
             $table->softDeletes();
         });
     }

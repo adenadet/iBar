@@ -14,8 +14,8 @@ return new class extends Migration
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
-            $table->integer('approved_by');
-            $table->timestamp('approved_at');
+            $table->integer('approved_by')->nullable();
+            $table->timestamp('approved_at')->nullable();
             $table->integer('deleted_by')->nullable();
             $table->softDeletes();
         });
