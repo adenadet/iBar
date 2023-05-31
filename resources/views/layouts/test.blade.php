@@ -38,7 +38,7 @@
 
     @include('partials.ibar.top')
     @include('partials.ibar.left')
-<!-- removeNotificationModal -->
+
 <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
