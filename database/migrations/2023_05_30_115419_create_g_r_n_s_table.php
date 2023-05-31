@@ -11,17 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('g_r_n_s', function (Blueprint $table) {
+        Schema::create('inventory_receive_notes', function (Blueprint $table) {
             $table->id();
+            $table->integer('purchase_order_id');
+            $table->string('unique_id');
+            $table->date('received_at');
+            $table->integer('received_by');
+            $table->integer('confirmed_by');
+            $table->date('confirmed_at');
+            $table->integer('created_by');
+            $table->integer('updated_by');
             $table->timestamps();
+            $table->integer('deleted_by');
+            $table->softDeletes();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('g_r_n_s');
+        Schema::dropIfExists('inventory_receive_notes');
     }
 };

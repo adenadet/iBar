@@ -6,18 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('inventory_vendor_account_information', function (Blueprint $table) {
+        Schema::create('pos_order_payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('vendor_id');
-            $table->integer('bank_id');
-            $table->string('account_name');
-            $table->string('account_number');
-            $table->string('status');
+            $table->integer('order_id');
+            $table->integer('payment_type_id');
+            $table->float('amount');
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
@@ -26,11 +21,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('inventory_vendor_account_information');
+        Schema::dropIfExists('pos_order_payments');
     }
 };

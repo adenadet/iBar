@@ -8,21 +8,23 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('inventory_purchase_orders', function (Blueprint $table) {
+        Schema::create('pos_order_item_fulfillments', function (Blueprint $table) {
             $table->id();
-            $table->string('unique_id');
+            $table->integer('order_id');
+            $table->integer('grn_id');
+            $table->integer('quantity');
+            $table->integer('fulfilled_by');
+            $table->timestamp('fulfilled_at');
             $table->integer('created_by');
             $table->integer('updated_by');
             $table->timestamps();
-            $table->integer('approved_by');
-            $table->timestamp('approved_at');
-            $table->integer('deleted_by')->nullable();
+            $table->integer('deleted_by');
             $table->softDeletes();
         });
     }
-
+    
     public function down(): void
     {
-        Schema::dropIfExists('inventory_purchase_orders');
+        Schema::dropIfExists('order_item_fulfillments');
     }
 };
