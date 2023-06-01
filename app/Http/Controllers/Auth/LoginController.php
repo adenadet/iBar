@@ -14,11 +14,6 @@ class LoginController extends Controller
 
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -33,7 +28,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
   
-        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'unique_id';
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
         {
             //if (Auth::user()->hasRole('Staff')){return redirect()->route('dashboard');}
