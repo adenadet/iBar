@@ -14,7 +14,6 @@
     <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
     <!--script src="{{asset('assets/js/layout.js')}}"></script-->
 </head>
-
 <body>
 <div id="layout-wrapper">
     @include('partials.ibar.top')
